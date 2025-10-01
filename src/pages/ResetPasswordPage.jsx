@@ -18,19 +18,19 @@ const ResetPasswordPage = () => {
 		e.preventDefault();
 
 		if (password !== confirmPassword) {
-			alert("Passwords do not match");
+			alert("Las claves no coinciden");
 			return;
 		}
 		try {
 			await resetPassword(token, password);
 
-			toast.success("Password reset successfully, redirecting to login page...");
+			toast.success("Contraseña cambiada correctamente redirigiendo al inicio de sesión");
 			setTimeout(() => {
 				navigate("/login");
 			}, 2000);
 		} catch (error) {
 			console.error(error);
-			toast.error(error.message || "Error resetting password");
+			toast.error(error.message || "Error");
 		}
 	};
 
@@ -43,7 +43,7 @@ const ResetPasswordPage = () => {
 		>
 			<div className='p-8'>
 				<h2 className='text-3xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text'>
-					Reset Password
+					Cambiar contraseña
 				</h2>
 				{error && <p className='text-red-500 text-sm mb-4'>{error}</p>}
 				{message && <p className='text-green-500 text-sm mb-4'>{message}</p>}
@@ -52,7 +52,7 @@ const ResetPasswordPage = () => {
 					<Input
 						icon={Lock}
 						type='password'
-						placeholder='New Password'
+						placeholder='Nueva contraseña'
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
@@ -61,7 +61,7 @@ const ResetPasswordPage = () => {
 					<Input
 						icon={Lock}
 						type='password'
-						placeholder='Confirm New Password'
+						placeholder='Confirmar nueva contraseña'
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required

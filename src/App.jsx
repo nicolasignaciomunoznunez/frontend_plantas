@@ -8,6 +8,7 @@ import EmailVerificationPage from "./pages/EmailVerificationPage";
 import DashboardPage from "./pages/DashboardPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import PlantRegistration from "./components/PlantRegistration"; // ✅ NUEVO
 
 import LoadingSpinner from "./components/LoadingSpinner";
 
@@ -61,6 +62,21 @@ const PrivatePageLayout = ({ children }) => (
           />
           <h1 className="text-2xl font-bold"></h1>
         </div>
+        {/* ✅ NUEVO: Botón de navegación */}
+        <nav className="flex items-center space-x-4">
+          <a 
+            href="/" 
+            className="hover:bg-blue-700 px-3 py-2 rounded-lg transition-colors"
+          >
+            Dashboard
+          </a>
+          <a 
+            href="/register-plant" 
+            className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg transition-colors flex items-center space-x-2"
+          >
+            <span>+ Nueva Planta</span>
+          </a>
+        </nav>
       </div>
     </header>
 
@@ -83,6 +99,43 @@ const PrivatePageLayout = ({ children }) => (
             optimizando recursos y garantizando eficiencia en cada proyecto.
           </p>
         </div>
+      </div>
+    </footer>
+  </div>
+);
+
+// ✅ NUEVO: Layout específico para registro de plantas (sin formas flotantes)
+const PlantRegistrationLayout = ({ children }) => (
+  <div className="min-h-screen bg-white flex flex-col">
+    <header className="bg-blue-800 text-white py-4 px-6 shadow-md">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex items-center space-x-4">
+          <img 
+            className="h-36 w-auto"
+            src="/images/finalogotr.png" 
+            alt="Logo R&V SPA" 
+          />
+          <h1 className="text-2xl font-bold"></h1>
+        </div>
+        <nav className="flex items-center space-x-4">
+          <a 
+            href="/" 
+            className="hover:bg-blue-700 px-3 py-2 rounded-lg transition-colors"
+          >
+            ← Volver al Dashboard
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main className="flex-grow">
+      {children}
+    </main>
+
+    <footer className="bg-blue-900 text-white py-6 text-center">
+      <div className="container mx-auto">
+        <p className="text-lg font-semibold">ESPECIALISTAS EN SOLUCIONES INTEGRALES</p>
+        <p className="mt-2">Para el buen funcionamiento de plantas de agua potable</p>
       </div>
     </footer>
   </div>
@@ -131,6 +184,19 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
+        {/* ✅ NUEVA RUTA: Registro de Plantas */}
+        <Route
+          path='/register-plant'
+          element={
+            <ProtectedRoute>
+              <PlantRegistrationLayout>
+                <PlantRegistration />
+              </PlantRegistrationLayout>
+            </ProtectedRoute>
+          }
+        />
+        
         <Route
           path='/signup'
           element={

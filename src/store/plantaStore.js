@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
-// ✅ CORREGIDO: Definir la URL base correctamente
 const API_URL = import.meta.env.MODE === 'development' 
   ? 'http://localhost:5000/api/planta' 
   : '/api/planta';
@@ -9,6 +8,7 @@ const API_URL = import.meta.env.MODE === 'development'
 export const usePlantStore = create((set, get) => ({
   plantData: [],
   latestPlantData: null,
+  recentPlantData: [], // ✅ NUEVO: Para múltiples plantas
   isLoading: false,
   error: null,
 
@@ -22,7 +22,7 @@ export const usePlantStore = create((set, get) => ({
         throw new Error('No hay token de autenticación');
       }
       
-      const response = await axios.get(`${API_URL}`, { // ✅ Usar API_URL
+      const response = await axios.get(`${API_URL}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -50,7 +50,7 @@ export const usePlantStore = create((set, get) => ({
         throw new Error('No hay token de autenticación');
       }
       
-      const response = await axios.get(`${API_URL}/latest`, { // ✅ Usar API_URL
+      const response = await axios.get(`${API_URL}/latest`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -64,10 +64,10 @@ export const usePlantStore = create((set, get) => ({
         isLoading: false 
       });
       
-      console.log('🔄 Datos actualizados en store:', newData);
+      console.log('🔄 Últimos datos actualizados en store:', newData);
       
     } catch (error) {
-      console.error('Error fetching plant data:', error);
+      console.error('Error fetching latest plant data:', error);
       set({ 
         error: error.response?.data?.message || 'Error al cargar datos recientes', 
         isLoading: false 
@@ -75,9 +75,46 @@ export const usePlantStore = create((set, get) => ({
     }
   },
 
-  // ✅ NUEVO: Limpiar errores
+  // ✅ NUEVO: Obtener datos recientes de todas las plantas
+  fetchRecentPlantData: async () => {
+    set({ isLoading: true, error: null });
+    try {
+      const token = localStorage.getItem('token');
+      
+      if (!token) {
+        throw new Error('No hay token de autenticación');
+      }
+      
+      const response = await axios.get(`${API_URL}/recent`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      
+      set({ 
+        recentPlantData: [...response.data.data],
+        isLoading: false 
+      });
+      
+      console.log('🔄 Datos recientes actualizados en store:', response.data.data);
+      
+    } catch (error) {
+      console.error('Error fetching recent plant data:', error);
+      set({ 
+        error: error.response?.data?.message || 'Error al cargar datos recientes', 
+        isLoading: false 
+      });
+    }
+  },
+
+  // ✅ Limpiar errores
   clearError: () => set({ error: null }),
 
-  // ✅ NUEVO: Limpiar todos los datos
-  clearData: () => set({ plantData: [], latestPlantData: null, error: null }),
+  // ✅ Limpiar todos los datos
+  clearData: () => set({ 
+    plantData: [], 
+    latestPlantData: null, 
+    recentPlantData: [],
+    error: null 
+  }),
 }));

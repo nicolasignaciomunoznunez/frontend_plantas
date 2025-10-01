@@ -1,4 +1,4 @@
-// DashboardPage.jsx - VERSIÓN MEJORADA
+// DashboardPage.jsx - VERSIÓN CORREGIDA
 import { motion } from "framer-motion";
 import { useAuthStore } from "../store/authStore";
 import { usePlantStore } from "../store/plantaStore";
@@ -8,14 +8,16 @@ import {
   RefreshCw, 
   AlertCircle, 
   Database, 
-  Bug, 
   User, 
   Calendar,
   LogOut,
   Activity,
   Battery,
   Gauge,
-  Shield
+  Shield,
+  MapPin,
+  Building,
+  Plus // ✅ AGREGAR ESTE IMPORT
 } from "lucide-react";
 
 const safeToFixed = (value) => {
@@ -24,7 +26,7 @@ const safeToFixed = (value) => {
   return isNaN(num) ? 'N/A' : num.toFixed(1);
 };
 
-const StatCard = ({ title, value, unit, icon: Icon, color = "blue", trend }) => (
+const StatCard = ({ title, value, unit, icon: Icon, color = "blue", trend, plantName }) => (
   <motion.div
     whileHover={{ scale: 1.02, y: -2 }}
     className="bg-white p-5 rounded-xl shadow-lg border border-gray-100"
@@ -41,6 +43,17 @@ const StatCard = ({ title, value, unit, icon: Icon, color = "blue", trend }) => 
         </span>
       )}
     </div>
+    
+    {/* Nombre de la planta */}
+    {plantName && (
+      <div className="mb-2">
+        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Planta</p>
+        <p className="text-sm font-medium text-gray-800 truncate" title={plantName}>
+          {plantName}
+        </p>
+      </div>
+    )}
+    
     <p className="text-sm text-gray-600 font-medium mb-1">{title}</p>
     <div className="flex items-baseline">
       <p className="text-2xl font-bold text-gray-800 mr-2">{value}</p>
@@ -49,9 +62,53 @@ const StatCard = ({ title, value, unit, icon: Icon, color = "blue", trend }) => 
   </motion.div>
 );
 
+const PlantInfoCard = ({ plantData }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-5 rounded-2xl shadow-lg"
+  >
+    <div className="flex items-center space-x-3 mb-3">
+      <Building className="text-white" size={24} />
+      <div>
+        <h3 className="text-lg font-bold">Información de la Planta</h3>
+        <p className="text-blue-100 text-sm">Datos actuales del sistema</p>
+      </div>
+    </div>
+    
+    <div className="space-y-2">
+      <div className="flex justify-between items-center py-2 border-b border-blue-400/30">
+        <span className="text-blue-100 flex items-center">
+          <Building className="mr-2" size={14} />
+          Nombre
+        </span>
+        <span className="font-semibold">{plantData?.plantName || 'No disponible'}</span>
+      </div>
+      
+      <div className="flex justify-between items-center py-2 border-b border-blue-400/30">
+        <span className="text-blue-100 flex items-center">
+          <MapPin className="mr-2" size={14} />
+          Ubicación
+        </span>
+        <span className="font-semibold">{plantData?.location || 'No disponible'}</span>
+      </div>
+      
+      <div className="flex justify-between items-center py-2">
+        <span className="text-blue-100 flex items-center">
+          <Calendar className="mr-2" size={14} />
+          Última lectura
+        </span>
+        <span className="font-semibold">
+          {plantData?.timestamp ? formatDate(plantData.timestamp) : 'N/A'}
+        </span>
+      </div>
+    </div>
+  </motion.div>
+);
+
 const DashboardPage = () => {
   const { user, logout } = useAuthStore();
-  const { latestPlantData, isLoading, error, fetchLatestPlantData } = usePlantStore();
+  const { latestPlantData, isLoading, error, fetchLatestPlantData, recentPlantData, fetchRecentPlantData } = usePlantStore();
   const [lastRefreshed, setLastRefreshed] = useState(null);
   const [debugInfo, setDebugInfo] = useState("");
   const [autoRefresh, setAutoRefresh] = useState(true);
@@ -62,8 +119,14 @@ const DashboardPage = () => {
     const token = localStorage.getItem('token');
     console.log("📋 Token in localStorage:", token ? "PRESENT" : "MISSING");
     
+    // Cargar datos iniciales
     fetchLatestPlantData().then(() => {
-      console.log("✅ Fetch completed. Latest data:", latestPlantData);
+      console.log("✅ Latest data fetched:", latestPlantData);
+    });
+    
+    // Cargar datos recientes de todas las plantas
+    fetchRecentPlantData().then(() => {
+      console.log("✅ Recent data fetched:", recentPlantData);
     });
     
     setLastRefreshed(new Date());
@@ -72,22 +135,23 @@ const DashboardPage = () => {
     if (autoRefresh) {
       const interval = setInterval(() => {
         fetchLatestPlantData();
+        fetchRecentPlantData();
         setLastRefreshed(new Date());
       }, 30000);
 
       return () => clearInterval(interval);
     }
-  }, [fetchLatestPlantData, autoRefresh]);
+  }, [fetchLatestPlantData, fetchRecentPlantData, autoRefresh]);
 
   const handleRefresh = async () => {
     console.log("🔄 Manual refresh triggered");
     setDebugInfo("Actualizando datos manualmente...");
     
-    await fetchLatestPlantData();
+    await Promise.all([fetchLatestPlantData(), fetchRecentPlantData()]);
     setLastRefreshed(new Date());
     
     if (latestPlantData) {
-      setDebugInfo(`✅ Datos actualizados: ${latestPlantData.nivelLocal}`);
+      setDebugInfo(`✅ Datos actualizados: ${latestPlantData.plantName}`);
     } else {
       setDebugInfo("⚠️ No hay datos disponibles después de la actualización");
     }
@@ -97,7 +161,7 @@ const DashboardPage = () => {
     logout();
   };
 
-  // Simular datos de tendencia (en una app real vendrían del backend)
+  // Simular datos de tendencia
   const mockTrends = {
     nivelLocal: 2.5,
     batLocal: -1.2,
@@ -136,7 +200,7 @@ const DashboardPage = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Columna Izquierda - Información del Usuario */}
+          {/* Columna Izquierda - Información del Usuario y Planta */}
           <div className="space-y-6">
             {/* Tarjeta de Usuario */}
             <motion.div
@@ -178,7 +242,12 @@ const DashboardPage = () => {
               </div>
             </motion.div>
 
-            {/* Controles */}
+            {/* Información de la Planta */}
+            {latestPlantData && (
+              <PlantInfoCard plantData={latestPlantData} />
+            )}
+
+            {/* Controles - VERSIÓN CORREGIDA */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -198,6 +267,15 @@ const DashboardPage = () => {
                   <RefreshCw className={isLoading ? 'animate-spin' : ''} size={18} />
                   <span>{isLoading ? 'Actualizando...' : 'Actualizar Datos'}</span>
                 </button>
+                
+                {/* ✅ BOTÓN CORREGIDO: Registrar Nueva Planta */}
+                <a 
+                  href="/register-plant"
+                  className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-green-500 text-white rounded-xl hover:bg-green-600 transition-colors"
+                >
+                  <Plus size={18} />
+                  <span>Registrar Nueva Planta</span>
+                </a>
                 
                 <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <span className="text-sm text-gray-700">Auto-actualizar</span>
@@ -241,8 +319,12 @@ const DashboardPage = () => {
                     <Database className="text-blue-600" size={24} />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-800">Estado de la Planta</h2>
-                    <p className="text-gray-600">Monitoreo en tiempo real</p>
+                    <h2 className="text-2xl font-bold text-gray-800">
+                      {latestPlantData?.plantName ? `Estado - ${latestPlantData.plantName}` : 'Estado del Sistema'}
+                    </h2>
+                    <p className="text-gray-600">
+                      {latestPlantData?.location || 'Monitoreo en tiempo real'}
+                    </p>
                   </div>
                 </div>
                 {lastRefreshed && (
@@ -282,6 +364,7 @@ const DashboardPage = () => {
                     icon={Gauge}
                     color="blue"
                     trend={mockTrends.nivelLocal}
+                    plantName={latestPlantData.plantName}
                   />
                   <StatCard
                     title="Batería Local"
@@ -290,6 +373,7 @@ const DashboardPage = () => {
                     icon={Battery}
                     color="green"
                     trend={mockTrends.batLocal}
+                    plantName={latestPlantData.plantName}
                   />
                   <StatCard
                     title="Sensor Local"
@@ -298,6 +382,7 @@ const DashboardPage = () => {
                     icon={Activity}
                     color="purple"
                     trend={mockTrends.senLocal}
+                    plantName={latestPlantData.plantName}
                   />
                 </div>
               ) : !isLoading && !error ? (
@@ -314,15 +399,47 @@ const DashboardPage = () => {
               )}
             </motion.div>
 
-            {/* Información Adicional */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-         
-            >
-        
-            </motion.div>
+            {/* Sección de Múltiples Plantas (si hay datos recientes) */}
+            {recentPlantData && recentPlantData.length > 1 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6"
+              >
+                <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                  <Building className="mr-2" size={20} />
+                  Otras Plantas
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {recentPlantData.slice(1).map((plant, index) => (
+                    <div key={index} className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="font-semibold text-gray-800">{plant.plantName}</h4>
+                        <span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">
+                          {plant.role}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">{plant.location}</p>
+                      <div className="grid grid-cols-3 gap-2 text-center">
+                        <div>
+                          <p className="text-xs text-gray-500">Nivel</p>
+                          <p className="font-semibold text-gray-800">{safeToFixed(plant.nivelLocal)}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500">Batería</p>
+                          <p className="font-semibold text-gray-800">{safeToFixed(plant.batLocal)}V</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500">Sensor</p>
+                          <p className="font-semibold text-gray-800">{safeToFixed(plant.senLocal)}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </div>
         </div>
       </motion.div>
