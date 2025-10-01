@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>RYV SPA</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon"  type="image/png" href="assets/images/favicon.png">		
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/plugin_theme_css.css">       
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">	
+		
+    </head>
+<body>
+<!-- HEADER COMPLETO RESPONSIVE -->
+<header class="tx_top2_relative">
+    <div class="solutech-main-menu one_page witr_h_h10">
+        <div class="solutech_nav_area scroll_fixed postfix">
+            <div class="container">
+                <!-- FILA PRINCIPAL -->
+                <div class="row logo-left align-items-center" style="display: flex; align-items: center; justify-content: space-between;">
+                    
+                    <!-- LOGO -->
+                    <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                        <div class="logo">
+                            <!-- Logo normal -->
+                            <a class="main_sticky_main_l" href="index.html" title="RYV SPA">
+                                <img src="assets/images/finalogo.jpeg" alt="RYV SPA" width="140" height="auto">
+                            </a>
+                            <!-- Logo sticky -->
+                            <a class="main_sticky_l" href="index.html" title="RYV SPA">
+                                <img src="assets/images/finalogotr.png" alt="RYV SPA" width="140" height="auto">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MENÚ ESCRITORIO -->
+                    <div class="col-md-9 col-sm-9 col-xs-8 d-none d-sm-flex justify-content-end">
+                        <nav class="solutech_menu main-search-menu">
+                            <ul class="sub-menu d-flex align-items-center" style="margin:0; padding:0; list-style:none;">
+                                <li style="margin-left: 20px;"><a href="index.html">Inicio</a></li>
+                                <li style="margin-left: 20px;"><a href="about.html">Sobre nosotros</a></li>
+                                <li style="margin-left: 20px;"><a href="#service">Servicios</a></li>
+                                <li style="margin-left: 20px;"><a href="contact.html">Contáctanos</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- MENÚ MÓVIL -->
+                    <div class="d-block d-sm-none col-8 text-right">
+                        <button id="mobile-menu-toggle" style="background:none; border:none; font-size:24px;">&#9776;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENÚ RESPONSIVE OCULTO -->
+    <div id="mobile-menu" style="display:none; background:#fff; position:absolute; width:100%; top:100%; left:0; z-index:1000;">
+        <ul style="list-style:none; margin:0; padding:10px 0; text-align:center;">
+            <li style="padding:10px 0;"><a href="index.html">Inicio</a></li>
+            <li style="padding:10px 0;"><a href="about.html">Sobre nosotros</a></li>
+            <li style="padding:10px 0;"><a href="#service">Servicios</a></li>
+            <li style="padding:10px 0;"><a href="contact.html">Contáctanos</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- SCRIPT PARA TOGGLE DEL MENÚ MÓVIL -->
+<script>
+    const toggleButton = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggleButton.addEventListener('click', () => {
+        if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+            mobileMenu.style.display = 'block';
+        } else {
+            mobileMenu.style.display = 'none';
+        }
+    });
+</script>
+
+</div>
+
+<!-- solutech_contact5_area -->
+<div class="solutech_contact5_area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="witr_section_title">
+					<div class="witr_section_title_inner text-center">
+						<h3>Contáctanos</h3>		
+						<p>Si tienes algún inconveniente, no dudes en comunicarte con nosotros a través de un mensaje.</p>		
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row contact_top">
+			<div class="col-lg-8 col-md-12 col-sm-12">
+				<div class="apartment_area">				
+					<div class="apartment_text"></div>		
+					<div class="witr_apartment_form">
+						<form action="mail.php" method="post" id="contact-form">
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<span><input type="text" name="name" placeholder="Nombre*"></span>
+								</div>
+								<div class="form-group col-md-6">
+									<span><input type="email" name="email" placeholder="Email*"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<span><input type="number" name="phone" placeholder="Telefono*"></span>
+							</div>
+						
+							<div class="form-group">
+								<span><textarea name="comment" placeholder="Comentario"></textarea></span>
+							</div>
+							<button type="submit" name="ok" class="btn btn-primary">Enviar</button>
+							<div class="row">
+								<div class="col-lg-12 text-center">
+									<p class="form-messege"></p>
+								</div>
+							</div>
+						</form>
+					</div>					
+				</div>									
+			</div>
+			<div class="col-lg-4 col-md-12 col-sm-12">
+				<div class="row em_service_contact_area">
+					<div class="col-lg-12 col-md-6 col-sm-12">
+						<div class="service-item all_color_service width_height_link_0 text-center  ">
+							<div class="service_top_image"></div>
+							<div class="text_box all_icon_color">
+								<h3>Ubicacion</h3>
+								<p>Quinta Normal 4830<br> Santiago </p>		
+							</div> 						
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-6 col-sm-12">
+						<div class="service-item all_color_service width_height_link_0 text-center  ">
+							<div class="service_top_image"></div>
+							<div class="text_box all_icon_color">
+								<h3>Horario de atencion</h3>
+								<p>lunes - domingo: 09:00 - 18:00<br> +56937492604 </p>	
+							</div> 						
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-6 col-sm-12">
+						<div class="service-item all_color_service width_height_link_0 text-center  ">
+							<div class="service_top_image"></div>
+							<div class="text_box all_icon_color">
+								<h3>Escribenos</h3>
+								<p>contacto@ryvspa.com, <br>juanito@ryvspa.com </p>
+							</div> 						
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>			
+	</div>			
+</div>
+
+<!-- security_map_area -->
+<div class="security_map_area"> 
+	<div class="containers">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="map_area">
+					<iframe 
+  class="map" 
+  src="https://maps.google.com/maps?q=Quinta%20Normal%204830%2C%20Santiago%2C%20Chile&t=m&z=15&output=embed&iwloc=near"
+  width="600" 
+  height="450" 
+  style="border:0;" 
+  allowfullscreen="" 
+  loading="lazy">
+</iframe>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- witrfm_footer_area -->
+<div class="witrfm_area">
+    <div class="footer-middle">  
+        <div class="container">
+            <div class="row">
+                <!-- Columna Logo -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget widget_solutech_description_widget">                
+                        <div class="solutech-description-area text-center">
+                            <a href="#">
+                                <img class="footer-logo" src="assets/images/finalogotr.png" alt="Logo R&V SPA"  >
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Soporte -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget widget_nav_menu">
+                        <h2 class="widget-title">Soporte 24/7</h2>
+                        <!-- Aquí puedes agregar enlaces si quieres -->
+                    </div>
+                </div>
+
+                <!-- Columna Información de contacto -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget about_us">
+                        <h2 class="widget-title">Información de contacto</h2>
+                        <div class="about-footer">
+                            <div class="footer-widget address">
+                                <div class="footer-address">
+                                    <div class="footer_s_inner"> 
+                                        <div class="footer-sociala-icon">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>                                    
+                                        <div class="footer-sociala-info">                
+                                            <p>Ubicación: Quinta Normal 4830</p>
+                                        </div> 
+                                    </div> 
+                                    <div class="footer_s_inner"> 
+                                        <div class="footer-sociala-icon">
+                                            <i class="fa fa-phone"></i>
+                                        </div>                                     
+                                        <div class="footer-sociala-info">   
+                                            <p>Teléfono: +56 937492604</p>
+                                        </div>
+                                    </div>
+                                    <div class="footer_s_inner"> 
+                                        <div class="footer-sociala-icon"> 
+                                            <i class="fa fa-envelope"></i>
+                                        </div> 
+                                        <div class="footer-sociala-info">  
+                                            <p>Email: contacto@r&vspa.com</p>                                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                <!-- Columna Horario -->
+                <div class="col-sm-12 col-md-6 col-lg-3 last">
+                    <div class="widget_text widget widget_custom_html">
+                        <h2 class="widget-title">Horario de Trabajo</h2>
+                        <div class="textwidget custom-html-widget">
+                            <div class="witr_table">
+                                <div class="witr_sub_table">
+                                    <span>Lunes - Miércoles</span>
+                                    <span>08:00 - 20:00</span>
+                                </div>
+                                <div class="witr_sub_table">    
+                                    <span>Jueves</span>
+                                    <span>09:00 - 18:00</span>
+                                </div>        
+                                <div class="witr_sub_table">        
+                                    <span>Viernes</span>
+                                    <span>09:00 - 18:00</span>
+                                </div>
+                                <div class="witr_sub_table">        
+                                    <span>Sábados - Domingos</span>
+                                    <span>10:00 - 14:00</span>
+                                </div>
+                                <div class="witr_sub_table">        
+                                    <span>Emergencias:</span>
+                                    <span>+56 965368132</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>              
+                </div>
+            </div>  
+        </div>  
+    </div>  
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom text-center py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>&copy; 2025 R&V SPA. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	
+
+        <!-- Include All JS -->
+        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/isotope.pkgd.min.js"></script>
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+        <script src="venobox/venobox.min.js"></script>
+        <script src="assets/js/theme-pluginjs.js"></script>
+        <script src="assets/js/jquery.meanmenu.js"></script>
+        <script src="assets/js/ajax-mail.js"></script>		
+        <script src="assets/js/map.js"></script>		
+        <script src="assets/js/theme.js"></script>
+	
+	</body>
+</html>

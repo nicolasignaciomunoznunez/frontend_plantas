@@ -1,0 +1,697 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>RYV SPA</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon"  type="image/png" href="assets/images/favicon.png">		
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/plugin_theme_css.css">       
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+			
+    </head>
+<body>
+<div class="em40_header_area_main">
+ 	<!-- HEADER TOP AREA -->
+<!-- HEADER COMPLETO RESPONSIVE -->
+<header class="tx_top2_relative">
+    <div class="solutech-main-menu one_page witr_h_h10">
+        <div class="solutech_nav_area scroll_fixed postfix">
+            <div class="container">
+                <!-- FILA PRINCIPAL -->
+                <div class="row logo-left align-items-center" style="display: flex; align-items: center; justify-content: space-between;">
+                    
+                    <!-- LOGO -->
+                    <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                        <div class="logo">
+                            <!-- Logo normal -->
+                            <a class="main_sticky_main_l" href="index.html" title="RYV SPA">
+                                <img src="assets/images/finalogo.jpeg" alt="RYV SPA" width="140" height="auto">
+                            </a>
+                            <!-- Logo sticky -->
+                            <a class="main_sticky_l" href="index.html" title="RYV SPA">
+                                <img src="assets/images/finalogotr.png" alt="RYV SPA" width="140" height="auto">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MENÚ ESCRITORIO -->
+                    <div class="col-md-9 col-sm-9 col-xs-8 d-none d-sm-flex justify-content-end">
+                        <nav class="solutech_menu main-search-menu">
+                            <ul class="sub-menu d-flex align-items-center" style="margin:0; padding:0; list-style:none;">
+                                <li style="margin-left: 20px;"><a href="index.html">Inicio</a></li>
+                                <li style="margin-left: 20px;"><a href="about.html">Sobre nosotros</a></li>
+                                <li style="margin-left: 20px;"><a href="#service">Servicios</a></li>
+                                <li style="margin-left: 20px;"><a href="contact.html">Contáctanos</a></li>
+                                <li style="margin-left: 20px;"><a href="http://localhost:5173/login">Iniciar Sesión</a></li>
+                            </ul>
+
+    
+                        </nav>
+                    </div>
+
+                    <!-- MENÚ MÓVIL -->
+                    <div class="d-block d-sm-none col-8 text-right">
+                        <button id="mobile-menu-toggle" style="background:none; border:none; font-size:24px;">&#9776;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENÚ RESPONSIVE OCULTO -->
+    <div id="mobile-menu" style="display:none; background:#fff; position:absolute; width:100%; top:100%; left:0; z-index:1000;">
+        <ul style="list-style:none; margin:0; padding:10px 0; text-align:center;">
+            <li style="padding:10px 0;"><a href="index.html">Inicio</a></li>
+            <li style="padding:10px 0;"><a href="about.html">Sobre nosotros</a></li>
+            <li style="padding:10px 0;"><a href="#service">Servicios</a></li>
+            <li style="padding:10px 0;"><a href="contact.html">Contáctanos</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- SCRIPT PARA TOGGLE DEL MENÚ MÓVIL -->
+<script>
+    const toggleButton = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggleButton.addEventListener('click', () => {
+        if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+            mobileMenu.style.display = 'block';
+        } else {
+            mobileMenu.style.display = 'none';
+        }
+    });
+</script>
+
+
+
+			
+<div class="witr_swiper_area">
+	<div class="swiper-container witr_active_id5">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide witr_swiper_height" style="background-image: url(assets/images/portada4.webp);">
+				<div class="witr_sw_text_area text-left">
+					<div class="witr_swiper_content">
+
+
+
+						<h2>Ingeniería para un <span>futuro sostenible</span></h2>
+						<h3> </h3>
+						<!-- btn gradient style -->
+						<div class="slider_btn">
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="swiper-slide witr_swiper_height" style="background-image: url(assets/images/portada1.jpg);">
+				<div class="witr_sw_text_area text-left">
+					<div class="witr_swiper_content">
+	
+						<h2>Tu planta de agua</h2>
+						<h3>Nuestro  <span>Compromiso</span></h3>
+						<!-- btn gradient style -->
+						<div class="slider_btn">
+							<div class="witr_btn_style">
+								<div class="witr_btn_sinner">
+									
+									<a class="witr_btn active recpwit" href="#">Contactanos</a>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-scrollbar"></div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>					
+	</div>
+</div>		
+
+
+
+
+
+<!-- solutech_about_area -->
+<div class="solutech_about_area">
+	<div class="container">	
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="witr_section_title">
+					<div class="witr_section_title_inner text-center">
+						<h2>Trabajando desde 2019.</h2>		
+						<h3>Especialistas en soluciones integrales para el buen funcionamiento de plantas de agua potable. Innovación y experiencia al servicio de tu comunidad.</h3>		
+								
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+			
+<!-- solutech_serivce_bg_area -->
+<div class="solutech_serivce_area serivce_bg">
+	<div class="container">	
+		<div class="row">
+			<div class="col-lg-12" id="service">
+				<div class="witr_section_title">
+					<div class="witr_section_title_inner text-center">
+						<h3>Nuestros servicios</h3>		
+						<br>
+						<h2>Proveemos soluciones integrales adaptadas a tus necesidades industriales, optimizando recursos y garantizando eficiencia en cada proyecto.</h2>		
+					</div>
+				</div>
+			</div>							
+		</div>
+		<div class="row service_top">
+			<!-- solutech_serivce_bg_01 -->
+			<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="all_feature_color single_feature2 text-center">            
+					<div class="witr_feature2">					
+						<div class="witr_fea2_icon_top">
+							<i class=" aprova-website-1"></i>					
+						</div>
+						<h3><a href="#">Planes de contingencia y mitigación </a></h3>
+						<p>Elaboramos estrategias integrales para anticipar y responder de manera efectiva a situaciones imprevistas, minimizando riesgos y asegurando la continuidad operativa.  </p>		
+				
+						<div class="witr_feature2_icon">						
+							<i class=" aprova-website-1"></i>	
+						</div>					
+					</div> 	   
+				</div>
+			</div>
+			<!-- solutech_serivce_bg_02 -->
+			<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="all_feature_color single_feature2 text-center">            
+					<div class="witr_feature2">					
+						<div class="witr_fea2_icon_top">
+							<i class=" aprova-landing"></i>				
+						</div>
+						<h3><a href="#">Mantenimiento eléctrico</a></h3>
+						<p>Realizamos inspecciones, reparaciones y optimización de sistemas eléctricos para garantizar su funcionamiento, prevenir fallas y extender su vida útil.</p>		
+				
+						<div class="witr_feature2_icon">						
+							<i class=" aprova-landing"></i>
+						</div>					
+					</div> 	   
+				</div>
+			</div>
+			<!-- solutech_serivce_bg_03 -->
+			<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="all_feature_color single_feature2 text-center">            
+					<div class="witr_feature2">					
+						<div class="witr_fea2_icon_top">
+							<i class="aprova aprova-analysis"></i>			
+						</div>
+						<h3><a href="#">Mantenimiento Industrial</a></h3>
+						<p>Garantizamos la operatividad y seguridad de equipos y sistemas mediante inspecciones, reparaciones y mejoras, optimizando su rendimiento y vida útil.  </p>		
+
+						<div class="witr_feature2_icon">						
+							<i class="aprova aprova-analysis"></i>
+						</div>					
+					</div> 	   
+				</div>
+			</div>
+			<!-- solutech_serivce_bg_04 -->
+			<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="all_feature_color single_feature2 text-center">            
+					<div class="witr_feature2">					
+						<div class="witr_fea2_icon_top">
+							<i class="aprova aprova-bitcoin-1"></i>			
+						</div>
+						<h3><a href="#">Automatización de procesos</a></h3>
+						<p>Diseñamos e implementamos soluciones tecnológicas para optimizar tareas, mejorar la eficiencia, reducir costos y aumentar la productividad operativa. </p>		
+	
+						<div class="witr_feature2_icon">						
+							<i class="aprova aprova-bitcoin-1"></i>
+						</div>					
+					</div> 	   
+				</div>
+			</div>
+			<!-- solutech_serivce_bg_05 -->
+			<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="all_feature_color single_feature2 text-center">            
+					<div class="witr_feature2">					
+						<div class="witr_fea2_icon_top">
+							<i class="aprova aprova-startup"></i>				
+						</div>
+						<h3><a href="#">Control y gestión de la planta</a></h3>
+						<p>Implementamos sistemas para supervisar, optimizar y coordinar procesos productivos, garantizando eficiencia, seguridad y mejores resultados operativos.  </p>		
+				
+						<div class="witr_feature2_icon">						
+							<i class="aprova aprova-startup"></i>
+						</div>					
+					</div> 	   
+				</div>
+			</div>
+			<!-- solutech_serivce_bg_06 -->
+			<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="all_feature_color single_feature2 text-center">            
+					<div class="witr_feature2">					
+						<div class="witr_fea2_icon_top">
+							<i class="aprova aprova-bitcoin-6"></i>					
+						</div>
+						<h3><a href="#">Análisis y Gestión Energética</a></h3>
+						<p>Realizamos auditorías energéticas, identificamos oportunidades de ahorro y diseñamos estrategias para optimizar el consumo y mejorar la eficiencia energética. </p>		
+				
+						<div class="witr_feature2_icon">						
+							<i class="aprova aprova-bitcoin-6"></i>
+						</div>					
+					</div> 	   
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- solutech_project_area -->
+<div class="solutech_project_area">
+    <div class="container">    
+        <!-- Título sección -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="witr_section_title">
+                    <div class="witr_section_title_inner text-center">
+                        <h2>Proyectos</h2>        
+                        <h3>Cómo abordamos nuestros proyectos</h3>        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyectos -->
+        <div class="witr_pslide all_pslides_color ps1 service_active">
+            <div class="witr_islidess_slick witr_cslide_idany project_top row">
+
+                <!-- Proyecto 1 -->
+                <div class="item_pos col-lg-4 col-md-6 col-sm-12 mb-4 d-flex align-items-stretch">
+                    <div class="witr_single_pslide text-center w-100">
+                        <div class="witr_pslide_image">
+                            <img src="assets/images/fusionppr.jpg" alt="Fusion HDPE" style="width:100%; height:250px; object-fit:cover;">
+                        </div>
+                        <div class="witr_pslide_custom">
+                            <a href="#"><span class="ti-arrow-right"></span></a>
+                        </div>
+                        <div class="witr_content_pslide_text">
+                            <div class="witr_content_pslide">
+                                <h3><a href="#">Fusion HDPE</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="item_pos col-lg-4 col-md-6 col-sm-12 mb-4 d-flex align-items-stretch">
+                    <div class="witr_single_pslide text-center w-100">
+                        <div class="witr_pslide_image">
+                            <img src="assets/images/hdpe.jpg" alt="Fusion PPR" style="width:100%; height:250px; object-fit:cover;">
+                        </div>
+                        <div class="witr_pslide_custom">
+                            <a href="#"><span class="ti-arrow-right"></span></a>
+                        </div>
+                        <div class="witr_content_pslide_text">
+                            <div class="witr_content_pslide">
+                                <h3><a href="#">Fusion PPR</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="item_pos col-lg-4 col-md-6 col-sm-12 mb-4 d-flex align-items-stretch">
+                    <div class="witr_single_pslide text-center w-100">
+                        <div class="witr_pslide_image">
+                            <img src="assets/images/calor.jpg" alt="Termografías" style="width:100%; height:250px; object-fit:cover;">
+                        </div>
+                        <div class="witr_pslide_custom">
+                            <a href="#"><span class="ti-arrow-right"></span></a>
+                        </div>
+                        <div class="witr_content_pslide_text">
+                            <div class="witr_content_pslide">
+                                <h3><a href="#">Termografías</a></h3>
+                                <p>System</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4 -->
+                <div class="item_pos col-lg-4 col-md-6 col-sm-12 mb-4 d-flex align-items-stretch">
+                    <div class="witr_single_pslide text-center w-100">
+                        <div class="witr_pslide_image">
+                            <img src="assets/images/automatizacion.webp" alt="Automatización" style="width:100%; height:250px; object-fit:cover;">
+                        </div>
+                        <div class="witr_pslide_custom">
+                            <a href="#"><span class="ti-arrow-right"></span></a>
+                        </div>
+                        <div class="witr_content_pslide_text">
+                            <div class="witr_content_pslide">
+                                <h3><a href="#">Automatización de procesos</a></h3>
+                                <p>Access</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5 -->
+                <div class="item_pos col-lg-4 col-md-6 col-sm-12 mb-4 d-flex align-items-stretch">
+                    <div class="witr_single_pslide text-center w-100">
+                        <div class="witr_pslide_image">
+                            <img src="assets/images/mitigacion.jpg" alt="Planes de mitigación" style="width:100%; height:250px; object-fit:cover;">
+                        </div>
+                        <div class="witr_pslide_custom">
+                            <a href="#"><span class="ti-arrow-right"></span></a>
+                        </div>
+                        <div class="witr_content_pslide_text">
+                            <div class="witr_content_pslide">
+                                <h3><a href="#">Planes de mitigación y contingencia</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6 (ejemplo extra, copia y cambia imágenes si quieres más) -->
+                <div class="item_pos col-lg-4 col-md-6 col-sm-12 mb-4 d-flex align-items-stretch">
+                    <div class="witr_single_pslide text-center w-100">
+                        <div class="witr_pslide_image">
+                            <img src="assets/images/otroproyecto.jpg" alt="Otro proyecto" style="width:100%; height:250px; object-fit:cover;">
+                        </div>
+                        <div class="witr_pslide_custom">
+                            <a href="#"><span class="ti-arrow-right"></span></a>
+                        </div>
+                        <div class="witr_content_pslide_text">
+                            <div class="witr_content_pslide">
+                                <h3><a href="#">Otro Proyecto</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+	
+		
+
+
+<!-- solutech_counter_area -->
+<div class="solutech_counter_area">
+	<div class="container counter_bg">	
+		<div class="row">
+			<!-- desicat_counter_01 -->
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="witr_counter_single all_counter_color">
+					<div class="witr_custom_icon">
+						<i class="icofont-man-in-glasses"></i>
+					</div>
+					<div class="witr_counter_number_inn">
+						<h3 class="counter">30</h3>				
+						<span>+</span>
+						<h4>Clientes felices </h4>		
+					</div> 
+				</div>
+			</div>
+			<!-- desicat_counter_02 -->
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="witr_counter_single all_counter_color">
+					<div class="witr_custom_icon">
+						<i class="icofont-automation"></i>
+					</div>	
+					<div class="witr_counter_number_inn">
+						<h3 class="counter">60</h3>				
+						<span>+</span>
+						<h4>
+							Soluciones tecnologicas
+							</h4>		
+					</div> 	
+				</div>
+			</div>
+			<!-- desicat_counter_03 -->
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="witr_counter_single all_counter_color">
+					<div class="witr_custom_icon">
+						<i class="icofont-money"></i>
+					</div>	
+					<div class="witr_counter_number_inn">
+						<h3 class="counter">8</h3>				
+						<span>+</span>
+						<h4>Clientes actuales</h4>		
+					</div> 	
+				</div>
+			</div>
+			<!-- desicat_counter_04 -->
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="witr_counter_single all_counter_color">
+					<div class="witr_custom_icon">
+						<i class="icofont-checked"></i>
+					</div>	
+					<div class="witr_counter_number_inn">
+						<h3 class="counter">33</h3>				
+						<span>+</span>
+						<h4>Projectos completados</h4>		
+					</div> 	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- single_next_work_area -->
+<div class="single_faq_bg_area faq_area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-10 col-sm-12">
+				<div class="witr_section_title">
+					<div class="witr_section_title_inner text-left">
+								
+						<h3>Preguntas Frecuentes</h3>		
+					</div>
+				</div>
+				<div class="witr_single_progress">
+					<div class="witr_title2">
+						<span class="witr_label">Trabajo Calificado. </span>	
+					</div>		
+					<div class="progress witr_progress-style2">
+						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 100%;">
+							<span class="witr_percent">100%</span>					
+						</div>
+					</div>				
+				</div>
+				<div class="witr_single_progress">
+					<div class="witr_title2">
+						<span class="witr_label">Servicio de calidad </span>	
+					</div>		
+					<div class="progress witr_progress-style2">
+						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 100%;">
+							<span class="witr_percent">100%</span>					
+						</div>
+					</div>				
+				</div>
+		
+				<div class="witr_single_progress">
+					<div class="witr_title2">
+						<span class="witr_label">Mantenimiento continuo </span>	
+					</div>		
+					<div class="progress witr_progress-style2">
+						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 100%;">
+							<span class="witr_percent">100%</span>					
+						</div>
+					</div>				
+				</div>
+				
+				
+			</div>
+			<div class="col-lg-6 col-md-12 col-sm-12">
+				<div class="accordion_area">
+                    <div class="faq-part">
+                        <div id="accordion">
+							<div class="card card-2">
+								<div class="card-header witr_ac_card">
+									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_242536c" aria-expanded="true">
+									 01. ¿Cómo se manejan las emergencias, como cortes o fallas en el sistema de distribución?</a>
+								</div>
+								<div id="collapse_242536c" class="collapse" data-parent="#accordion">
+									<p>Tenemos un protocolo de emergencia para actuar de manera inmediata ante cualquier fallo en el sistema, asegurando la pronta restauración del servicio.</p>
+								</div>
+							</div>
+							<div class="card card-2">
+								<div class="card-header witr_ac_card">
+									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9315e3d1" aria-expanded="true">
+									02.¿Cuáles son los costos asociados al mantenimiento de sistemas de agua potable rural? </a>
+								</div>
+								<div id="collapse_9315e3d1" class="collapse   " data-parent="#accordion">
+                                    <p>Los costos varían según el tipo de servicio requerido, el tamaño de la planta y la frecuencia de mantenimiento, por lo que ofrecemos presupuestos personalizados.</p>
+								</div>
+							</div> 
+							<!-- card -->	
+							<div class="card card-2  ">
+								<div class="card-header witr_ac_card">
+									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9965145" aria-expanded="true">
+									03. ¿Qué tipos de servicios de mantenimiento ofrecen para sistemas de agua potable rural? </a>
+								</div>
+								<div id="collapse_9965145" class="collapse   " data-parent="#accordion">
+                                     <p>Ofrecemos mantenimiento preventivo y correctivo de bombas, tuberías, filtros y sistemas de distribución,También brindamos:<br> Automatización de Procesos: Optimización de sistemas para mejorar la eficiencia operativa.<br>
+										  Análisis y Gestión Energética: Auditorías energéticas y estrategias para optimizar el consumo y reducir costos.<br>
+										   Control y Gestión de Planta: Implementación de sistemas de supervisión para maximizar la eficiencia de la planta.</p>
+								</div>
+							</div>
+			
+					
+						</div>
+                    </div> 	
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+		
+<!-- ryv_work_area -->
+
+
+
+
+
+<!-- witrfm_footer_area -->
+<div class="witrfm_area">
+    <div class="footer-middle">  
+        <div class="container">
+            <div class="row">
+                <!-- Columna Logo -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget widget_solutech_description_widget">                
+                        <div class="solutech-description-area text-center">
+                            <a href="#">
+                                <img class="footer-logo" src="assets/images/finalogotr.png" alt="Logo R&V SPA"  >
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Soporte -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget widget_nav_menu">
+                        <h2 class="widget-title">Soporte 24/7</h2>
+                        <!-- Aquí puedes agregar enlaces si quieres -->
+                    </div>
+                </div>
+
+                <!-- Columna Información de contacto -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget about_us">
+                        <h2 class="widget-title">Información de contacto</h2>
+                        <div class="about-footer">
+                            <div class="footer-widget address">
+                                <div class="footer-address">
+                                    <div class="footer_s_inner"> 
+                                        <div class="footer-sociala-icon">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>                                    
+                                        <div class="footer-sociala-info">                
+                                            <p>Ubicación: Quinta Normal 4830</p>
+                                        </div> 
+                                    </div> 
+                                    <div class="footer_s_inner"> 
+                                        <div class="footer-sociala-icon">
+                                            <i class="fa fa-phone"></i>
+                                        </div>                                     
+                                        <div class="footer-sociala-info">   
+                                            <p>Teléfono: +56 937492604</p>
+                                        </div>
+                                    </div>
+                                    <div class="footer_s_inner"> 
+                                        <div class="footer-sociala-icon"> 
+                                            <i class="fa fa-envelope"></i>
+                                        </div> 
+                                        <div class="footer-sociala-info">  
+                                            <p>Email: contacto@r&vspa.com</p>                                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                <!-- Columna Horario -->
+                <div class="col-sm-12 col-md-6 col-lg-3 last">
+                    <div class="widget_text widget widget_custom_html">
+                        <h2 class="widget-title">Horario de Trabajo</h2>
+                        <div class="textwidget custom-html-widget">
+                            <div class="witr_table">
+                                <div class="witr_sub_table">
+                                    <span>Lunes - Miércoles</span>
+                                    <span>08:00 - 20:00</span>
+                                </div>
+                                <div class="witr_sub_table">    
+                                    <span>Jueves</span>
+                                    <span>09:00 - 18:00</span>
+                                </div>        
+                                <div class="witr_sub_table">        
+                                    <span>Viernes</span>
+                                    <span>09:00 - 18:00</span>
+                                </div>
+                                <div class="witr_sub_table">        
+                                    <span>Sábados - Domingos</span>
+                                    <span>10:00 - 14:00</span>
+                                </div>
+                                <div class="witr_sub_table">        
+                                    <span>Emergencias:</span>
+                                    <span>+56 965368132</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>              
+                </div>
+            </div>  
+        </div>  
+    </div>  
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom text-center py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>&copy; 2025 R&V SPA. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+				
+
+
+
+
+        <!-- Include All JS -->
+        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/isotope.pkgd.min.js"></script>
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+        <script src="venobox/venobox.min.js"></script>
+        <script src="assets/js/theme-pluginjs.js"></script>
+        <script src="assets/js/jquery.meanmenu.js"></script>
+        <script src="assets/js/ajax-mail.js"></script>		
+        <script src="assets/js/map.js"></script>		
+        <script src="assets/js/theme.js"></script>
+	
+	</body>
+</html>
